@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTUC Employee Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-users-cog"></i> LTUC Employees</h1>
+            <p>Manage your team efficiently</p>
+        </header>
+
+        <div class="glass-panel">
+            <div class="form-section">
+                <h2><i class="fas fa-user-plus"></i> Add / Edit Employee</h2>
+                <form id="employeeForm">
+                    <input type="hidden" id="editingId">
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="text" id="employeeId" required placeholder=" ">
+                            <label for="employeeId">Employee ID</label>
+                        </div>
+                        <div class="input-group" style="flex: 2;">
+                            <input type="text" id="fullName" required placeholder=" ">
+                            <label for="fullName">Full Name</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <input type="number" id="age" required placeholder=" " min="18" max="100">
+                            <label for="age">Age</label>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="address" required placeholder=" ">
+                            <label for="address">Address</label>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submitBtn" class="btn-primary">
+                            <i class="fas fa-save"></i> Save Employee
+                        </button>
+                        <button type="button" id="cancelBtn" class="btn-secondary hidden" onclick="resetForm()">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="list-section">
+                <div class="list-header">
+                    <h2><i class="fas fa-list"></i> Employee List</h2>
+                    <span class="badge" id="totalCount">0 Employees</span>
+                </div>
+                <div class="table-container">
+                    <table id="employeeTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Address</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be injected here -->
+                        </tbody>
+                    </table>
+                    <div id="noData" class="no-data hidden">
+                        <i class="fas fa-inbox"></i>
+                        <p>No employees found. Add one to get started!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
