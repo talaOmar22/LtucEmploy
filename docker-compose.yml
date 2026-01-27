@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  ltuc-employ:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ltuc-employ-app
+    ports:
+      - "8080:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - ltuc-network
+
+networks:
+  ltuc-network:
+    driver: bridge
